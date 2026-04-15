@@ -160,6 +160,7 @@ try {
 #Set-CIPPEnvVarBackup
 #Set-CIPPOffloadFunctionTriggers
 #}
+}
 
 $SwTimezone = [System.Diagnostics.Stopwatch]::StartNew()
 try {
