@@ -150,11 +150,16 @@ if (!$LastStartup -or $CurrentVersion -ne $LastStartup.Version) {
 }
 $SwVersion.Stop()
 $Timings['VersionCheck'] = $SwVersion.Elapsed.TotalMilliseconds
-
-if ($env:AzureWebJobsStorage -ne 'UseDevelopmentStorage=true' -and $env:NonLocalHostAzurite -ne 'true') {
-    Set-CIPPEnvVarBackup
-    Set-CIPPOffloadFunctionTriggers
+try {
+    
 }
+catch {
+    <#Do this if a terminating exception happens#>
+}
+#if ($env:AzureWebJobsStorage -ne 'UseDevelopmentStorage=true' -and $env:NonLocalHostAzurite -ne 'true') {
+Set-CIPPEnvVarBackup
+Set-CIPPOffloadFunctionTriggers
+#}
 
 $SwTimezone = [System.Diagnostics.Stopwatch]::StartNew()
 try {
